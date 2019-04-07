@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <title>Course Details</title>
+
+<style type="text/css">
+  .display{
+    font-size: 1.3rem;
+    font-style: italic;
+
+  }  
+
+.ldisplay {
+	font-size: 1.3rem;
+	font-weight: bold;
+
+}
+
+  textarea{
+    display: block;
+  box-sizing: padding-box;
+  overflow: hidden;
+  }
+  #mainNavbar {
+    font-size: 1.2rem;
+    font-weight: 100;      
+}
+
+#mainNavbar .nav-link {
+    color: gray;
+}
+
+#mainNavbar .nav-link:hover {
+    color: white;
+}
+
+#mainNavbar .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+}
+.navbar.scrolled {
+    background: #4B0082;
+    transition: background 500ms;
+}
+</style>
+
+</head>
+
+<body>
+
+  <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top" style="background-color: black;">
+      <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png" height=45%;></a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav mr-auto" style="margin-left: auto; padding-left: 700px;">
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white;" href="#">AU Website</a> -->
+            <a href="https://ansaluniversity.edu.in/" class="btn btn-outline-secondary" style="color: white; width: 220px; margin-right: 10px;">Go to AU Website</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white;" href="#">Courses</span></a> -->
+            <a href="#courses" class="btn btn-outline-secondary" style="color: white; margin-right: 10px;" >Courses</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white; margin-left: 2%;" href="#">About Us</a> -->
+        
+          <!-- </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row justify-content-center">
+              <div class="col-md-9 pt-5">
+                <span class="anchor" id="formUserEdit"></span>
+                <!-- form user info -->
+                <div class="card card-outline-secondary">
+                  <div class="card-header">
+                    <h3 class="mb-0 text-center">Course Details</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Title: </label>
+                      <div class="col-lg-9"> <p class="display"><%= course.title %></p></div>
+                    </div>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">School: </label>
+                      <div class="col-lg-9"> <p class="display"><%= course.school %></p></div>
+                    </div>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Details: </label>
+                      <div class="col-lg-9"><p class="display"><%= course.details %></p></div>
+                    </div> <br>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Duration: </label>
+                      <div class="col-lg-9"><p class="display"><%= course.duration %> months</p></div>
+                    </div>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Prerequisites: </label>
+                      <div class="col-lg-9"> <p class="display"><%= course.prerequisites %></p></div>
+                    </div>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Taught By: </label>
+                      <div class="col-lg-9"> <p class="display"><%= course.taughtBy %></p></div>
+                    </div>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Class Per Week: </label>
+                      <div class="col-lg-9"><p class="display"><%= course.classPerWeek %> Classes /week</p></div>
+                    </div>
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Students Enrolled: </label>
+                      <div class="col-lg-9"><p class="display"><%= course.students.length %></p></div>
+                    </div> 
+                    <div class="row px-4 ml-2"> <label class="ldisplay">Created on:</label>
+                      <div class="col-lg-9"><p class="display"><%= course.createdOn %> %></p></div>
+                    </div> 
+                    <div class="row px-4 ml-2">
+                      <div class="col-lg-9">
+                        <a href="/courses/<%= course._id %>/enroll" class="btn btn-primary btn-lg">Enroll Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /form user info -->
+              </div>
+            </div>
+          </div><!--/col-->
+        </div><!--/row-->
+      </div><!--/container-->
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+      $(document)
+    .one('focus.autoExpand', 'textarea.autoExpand', function(){
+        var savedValue = this.value;
+        this.value = '';
+        this.baseScrollHeight = this.scrollHeight;
+        this.value = savedValue;
+    })
+    .on('input.autoExpand', 'textarea.autoExpand', function(){
+        var minRows = this.getAttribute('data-min-rows')|0, rows;
+        this.rows = minRows;
+        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
+        this.rows = minRows + rows;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AU TDL::Course - <%= course.title %></title>
+
+	<style type="text/css">
+
+		table {
+			width: 100%;
+		}
+
+		th, td {
+			padding: 10px;
+		}
+
+		body,html {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background-color: #34495e; 
+		}
+
+		.container {
+			margin: 5% auto;
+			background-color: white;
+			padding-bottom: 5%;
+			/*position: absolute;*/
+			top: 50%;
+			left: 50%;
+			/*transform: translate(-50%, -50%);*/
+		}
+
+		
+	</style>
+	<link rel="stylesheet" type="text/css" href="/Stylesheets/bootstrap.min.css">
+
+</head>
+<body style="background: #34495e;">
+
+		<% if(message && message.length > 0) { %>
+		<!-- <div class="container" style="margin-top: 2%"> -->
+			<div class="alert alert-success" role="alert"><%= message %></div>
+		<!-- </div> -->
+	<% } %>
+
+	<div class="container" style="border: 3px solid black;">
+
+		<nav class="navbar navbar-light">
+		  <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png"></a>
+		  <a href="/schools/<%= school._id %>/logout" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+		</nav>
+
+		<h3>TDL Course Details</h3>	
+
+		<hr>
+
+		<table border="1px">
+			<tr>
+				<th>Course Title</th>
+				<td><%= course.title %></td>
+			</tr>
+			<tr>
+				<th>Course Code</th>
+				<td><%= course.code %></td>
+			</tr>
+			<tr>
+				<th>Publishing School</th>
+				<td><%= course.school %></td>
+			</tr>
+			<tr>
+				<th>Details</th>
+				<td><%= course.details %></td>
+			</tr>
+			<tr>
+				<th>Duration of Course</th>
+				<td><%= course.duration %> <b>months</b></td>
+			</tr>
+			<tr>
+				<th>Pre-requisites for Course</th>
+				<td><%= course.prerequisites %></td>
+			</tr>
+			<tr>
+				<th>Classes per Week</th>
+				<td><%= course.classPerWeek %> <b>/ Week</b></td>
+			</tr>
+			<tr>
+				<th>Teaching Faculty</th>
+				<td><%= course.taughtBy %></td>
+			</tr>
+			<tr>
+				<th>Number of Students Enrolled</th>
+				<td><%= course.students.length %></td>
+			</tr>
+			<tr>
+				<th>Course Created On</th>
+				<td><%= course.createdOn %></td>
+			</tr>
+
+		</table>
+
+	<div style="margin-top: 3%; text-align: right;">
+		<a class="btn btn-info btn-lg" href="/schools/<%= school._id %>/courses/<%= course._id %>/students">View Enrolled Students</a>		
+
+		<a class="btn btn-primary btn-lg" href="/schools/<%= school._id %>/courses/<%= course._id %>/update">Update Course</a>
+
+		<a class="btn btn-danger btn-lg" onclick="return confirm()" href="/schools/<%= school._id %>/courses/<%= course._id %>/delete">Delete Course</a>
+	</div>
+
+	<center><a href="/schools/<%= school._id %>/" class="btn btn-warning btn-lg" style="margin-top: 5%;">Back</a>
+
+</div>
+
+<script type="text/javascript">
+	function confirm() {
+		var result = prompt("Are you sure you want to delete the course? (y/n)");
+		if(result == "n") {
+			return false;
+		}
+		return true;
+	}
+</script>
+
+</body>
+</html>

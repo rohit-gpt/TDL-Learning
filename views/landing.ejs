@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AU TDL::Welcome</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/Stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  
+</head>
+
+<style type="text/css">
+	body, html {
+		height: 100%;
+		margin: 0;
+	}
+
+	#particles-js 
+	{
+		height: 100%;
+		width: 100%;
+		background: black;
+		display: block;
+		z-index: 50;
+	}
+
+	#heading {
+    font-family: Righteous;
+    text-shadow: 2px 2px 8px #FF0000;
+		position: absolute;
+		z-index: 100;
+		width: 50%;
+		height: 90px;
+		top: 10%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		color: white;
+		margin-left: 25%;
+		margin-top: 5%;
+	}
+
+
+	#content {
+    text-shadow: 2px 2px 8px blue;
+		position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 90px;
+    top: 40%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    /*margin-left: 25%;*/
+    /*margin-top: 5%;*/
+	}
+
+	#mainNavbar {
+    font-size: 1.2rem;
+    font-weight: 100;      
+}
+
+#mainNavbar .nav-link {
+    color: gray;
+}
+
+#mainNavbar .nav-link:hover {
+    color: white;
+}
+
+#mainNavbar .navbar-brand {
+    color: white;
+    font-size: 1.2rem;
+}
+.navbar.scrolled {
+    background: #4B0082;
+    transition: background 500ms;
+}
+
+#gallery{
+    margin-top: 125px;
+}
+
+.container{
+    margin: 10%;
+}
+
+.navbar.scrolled {
+    background: #4B0082;
+    transition: background 500ms;
+}
+
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+.hovereffect .overlay {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    margin-bottom: 5px;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    padding: 1em;
+    height: 4.75em;
+    background: #79FAC4;
+    color: #3c4a50;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+    visibility: hidden;
+
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+}
+
+.hovereffect:hover img {
+-webkit-transform: translate3d(0,-10%,0);
+    transform: translate3d(0,-10%,0);
+}
+
+.hovereffect button {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    float: left;
+    margin: 0px;
+    display: inline-block;
+}
+
+.hovereffect a.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #fff;
+    margin: 50px 0 0 0;
+    background-color: transparent;
+}
+.hovereffect a.info:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect button{
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,200%,0);
+    transform: translate3d(0,200%,0);
+    visibility: visible;
+}
+
+.hovereffect:hover .overlay,
+.hovereffect:hover button{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.hovereffect:hover button {
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+}
+
+
+</style>
+<body>
+
+	<!-- Image and text -->
+<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top" style="background-color: black;">
+      <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png" height=45%;></a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav mr-auto" style="margin-left: auto; padding-left: 700px;">
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white;" href="#">AU Website</a> -->
+            <a href="https://ansaluniversity.edu.in/" class="btn btn-outline-secondary" style="color: white; width: 220px; margin-right: 10px;">Go to AU Website</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white;" href="#">Courses</span></a> -->
+            <a href="#courses" class="btn btn-outline-secondary" onclick="smoothScroll(document.getElementById('courses'))" style="color: white; margin-right: 10px;" >Courses</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white; margin-left: 2%;" href="#">About Us</a> -->
+          <!-- </li> -->
+        </ul>
+      </div>
+    </nav>
+
+
+	<div id="particles-js"></div>
+
+	<center>
+	<div id="heading">
+		<h1 style="font-size: 4.0em;">TDL Courses</h1>
+		<br>
+		<h3>(Brought To You By Ansal University)</h3>
+	</div>
+	</center>
+
+
+	<div class="container" id="content">
+	  <div class="row">
+	    <div class="col-lg-2 col-md-12">
+	      <i class="fas fa-quote-left fa-7x" style="padding-left: 20%;"></i>
+	    </div>
+	    <div class="col-lg-10 col-md-12" style="padding-top: 1%">
+	      <h2><u>Our Vision:</u></h2>
+	      <span style="font-size: 1.2em;">Achieving excellence and sustainability of higher education through research, innovation, participatory governance and internationalization.</span>
+	    </div>
+	  </div>
+	  <div class="row">
+	  	<div class="col-sm-12" style="padding-top: 10%;">
+	  		<center>
+	  		<a href="#courses" onclick="smoothScroll(document.getElementById('courses'))">View All Courses
+	  		<br>
+	  		<i class="fas fa-angle-double-down fa-2x"></i></a>
+	  		</center>
+	  	</div>
+	  </div>
+	</div>
+
+
+  <div id="courses" style="margin-top: 0; padding-top: 1%; height: 100%;">
+    
+    <section id="gallery">
+       <div class="container">
+            <div class="row">
+                
+
+              <% if(courses) { %>
+                <% courses.forEach(function(course) { %>
+                    <div class="pb-5 mx-0 mx-sm-2 mx-md-3 mx-lg-4">
+          <div class="hovereffect">
+                <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= course.title %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= course.school %></h6>
+                <p class="card-text">Duration: <%= course.duration %> months with <%= course.classPerWeek %> classes/week</p>
+                  <div class="overlay"><a href="/courses/<%= course._id %>"> <button class="btn btn-primary">Explore</button> </a> </div>
+              </div>
+          </div>
+        </div>
+        </div>  
+              <%  }) %>
+              <% } %>
+                
+                 
+                </div>
+       </div>
+    </section>
+
+  </div>
+
+<script type="text/javascript">
+  window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { //find scroll container
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do { //find the top of target relatively to the container
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    // start scrolling
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+</script>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/Javascripts/particles.min.js"></script>
+<script type="text/javascript">
+	particlesJS('particles-js',
+		{
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 6,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+
+
+
+
+<!-- 	<h1>All Active Courses</h1>
+	<hr>
+
+	<% if(courses) { %>
+
+		<% courses.forEach(function(course) { %>
+
+			<li><a href="/courses/<%= course._id %>"> <%= course.title %> </a></li>
+		<% }) %>
+	<% } %> -->
+
+
+</body>
+</html>

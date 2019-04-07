@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <title>Enroll Now</title>
+
+  <style type="text/css">
+    
+#mainNavbar {
+    font-size: 1.2rem;
+    font-weight: 100;      
+}
+
+#mainNavbar .nav-link {
+    color: gray;
+}
+
+#mainNavbar .nav-link:hover {
+    color: white;
+}
+
+#mainNavbar .navbar-brand {
+    color: white;
+    font-size: 1.2rem;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top" style="background-color: black;">
+      <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png" height=45%;></a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav mr-auto" style="margin-left: auto; padding-left: 700px;">
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white;" href="#">AU Website</a> -->
+            <a href="https://ansaluniversity.edu.in/" class="btn btn-outline-secondary" style="color: white; width: 220px; margin-right: 10px;">Go to AU Website</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white;" href="#">Courses</span></a> -->
+            <a href="#courses" class="btn btn-outline-secondary" style="color: white; margin-right: 10px;" >Courses</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link btn btn-secondary" style="color: white; margin-left: 2%;" href="#">About Us</a> -->
+           
+          <!-- </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row justify-content-center">
+              <div class="col-md-8 pt-5">
+                <span class="anchor" id="formUserEdit"></span>
+                <!-- form user info -->
+                <div class="card card-outline-secondary">
+                  <div class="card-header">
+                    <h3 class="mb-0 text-center">Enroll in Web Development</h3>
+                  </div>
+                  <form action="/courses/<%= course._id %>/enroll" method="POST" autocomplete="off" class="form" role="form">
+                  <div class="card-body">
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Your Name:</label>
+                        <div class="col-lg-9">
+                          <input class="form-control" type="text" name="student[name]" placeholder="enter your full name" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Registration No:</label>
+                        <div class="col-lg-9">
+                          <input class="form-control" name="student[rollno]" type="text" placeholder="enter your university registration no" style="text-transform: uppercase;" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">School of Study:</label>
+                        <div class="col-lg-9">
+                          <select name="student[school]" class="form-control" required>
+                            <option disabled selected value>Select your school</option>
+                            <option value="School of Engineering & Technology">School of Engineering & Technology</option>
+                            <option value="Sushant School of Art & Architecture">Sushant School of Art & Architecture</option>
+                            <option value="School of Hospitality Management">School of Hospitality Management</option>
+                            <option value="Sushant School of Business">Sushant School of Business</option>
+                            <option value="Sushant School of Business">Sushant School of Business</option>
+                            <option value="School of Law">School of Law</option>
+                            <option value="Sushant School of Design">Sushant School of Design</option>
+                            <option value="Sushant School of Health Sciences">Sushant School of Health Sciences</option>
+                            <option value="Sushant School of Planning & Development">Sushant School of Planning & Development</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                          <input class="form-control" type="email" name="student[email]" placeholder="email" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Contact</label>
+                          <div class="col-lg-2">
+                           <input type="text" class="form-control" value="+91" disabled> 
+                          </div>
+                          <div class="col-lg-7">
+                            <input type="tel" pattern="[0-9]{10}" class="form-control" name="student[contact]" placeholder="enter your mobile no" required>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-9">
+                          <input class="btn btn-primary" type="submit" value="Submit">
+                        </div>
+                      </div>
+                    </form>
+                </div><!-- /form user info -->
+              </div>
+            </div>
+          </div><!--/col-->
+        </div><!--/row-->
+      </div><!--/container-->
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

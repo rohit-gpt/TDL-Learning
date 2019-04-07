@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AU TDL::Students - <%= course.title %></title>
+	<style type="text/css">
+
+		table {
+			width: 100%;
+		}
+		th, td {
+			padding: 10px;
+		}
+
+		body,html {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: #34495e; 
+		}
+
+		.container {
+			margin: 5% auto;
+			background-color: white;
+			padding-bottom: 5%;
+			/*position: absolute;*/
+			top: 50%;
+			left: 50%;
+			/*transform: translate(-50%, -50%);*/
+		}
+
+		
+	</style>
+	<link rel="stylesheet" type="text/css" href="/Stylesheets/bootstrap.min.css">
+</head>
+<body style="background-color: #34495e;">
+
+	<div class="container" style="border: 3px solid black;">
+
+		<nav class="navbar navbar-light">
+		  <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png"></a>
+		  <a href="/admin/logout" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+		</nav>
+
+		<h3><%= course.title %></h3>	
+
+		<hr>
+
+		<table border="1px">
+			<tr>
+				<th colspan="5" style="text-align: center;">Enrolled Students</th>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<th>Reg. No.</th>
+				<th>School</th>
+				<th>Email ID</th>
+				<th>Mobile Number</th>
+			</tr>
+
+			<% if(course.students) { %>
+				<% course.students.forEach(function(student) { %>
+					<tr>
+						<td><%= student.name %></td>
+						<td><%= student.rollno %></td>
+						<td><%= student.school %></td>
+						<td><%= student.email %></td>
+						<td><%= student.contact %></td>
+					</tr>
+				<% }); %>
+			<% } %>
+		</table>
+		<center><a href="/schools/<%= school._id %>/courses/<%= course._id %>" class="btn btn-warning btn-lg" style="margin-top: 5%;">Back</a></center>
+	</div>
+
+</body>
+</html>

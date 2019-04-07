@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AU TDL::Add New Course</title>
+	<link rel="stylesheet" type="text/css" href="/Stylesheets/bootstrap.min.css">
+
+	<style type="text/css">
+		body,html {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: #34495e; 
+		}
+
+		.container {
+			margin: 5% auto;
+			background-color: white;
+			padding-bottom: 5%;
+			/*position: absolute;*/
+			top: 50%;
+			left: 50%;
+			/*transform: translate(-50%, -50%);*/
+		}
+
+		form {
+			background-color: #191919;
+			width: 80%;
+			border: 2px solid black;
+		}
+
+		form input[type="text"], form input[type="password"], form input[type="number"], form textarea {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #3498db;
+			padding: 14px 10px;
+			width: 80%;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: 0.25s;
+		}
+
+		form input[type="text"]:focus, form input[type="password"]:focus, form input[type="number"]:focus, form textarea:focus {
+
+			border-color: #2ecc71;
+		}
+
+		form input[type="submit"] {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #2ecc71;
+			padding: 14px 40px;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: 0.25s;
+			cursor: pointer;
+		}
+
+		form input[type = "submit"]:hover {
+			background: #2eec71;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container" style="border: 3px solid black;">
+		<nav class="navbar navbar-light">
+		  <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png"></a>
+		  <a href="/schools/<%= school._id %>/logout" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+		</nav>
+
+		<center><h3>Add New Course</h3></center>
+		<hr>
+		<center>
+		<form autocomplete="off" action="/schools/<%= school._id %>/courses" method="POST">
+			<input type="text" name="course[title]" placeholder="Course Title" required>
+			<br>
+			<input type="text" name="course[code]" placeholder="Course Code" required>
+			<br>
+			<input type="text" name="course[school]" value="<%= school.name %>" disabled required>
+			<br>
+			<textarea placeholder="Details of course..." rows="10" name="course[details]" style="text-align: left;" required></textarea>
+			<br>
+			<input type="number" name="course[duration]" id="duration" placeholder="Duration of Course (months)" required>
+			<br>
+			<textarea placeholder="Pre-requisites for the course..." rows="10" name="course[prerequisites]" style="text-align: left;" required></textarea>
+			<br>
+			<input type="number" name="course[classPerWeek]" id="cpw" placeholder="Number of classes per week" required>
+			<br>
+			<input type="text" name="course[taughtBy]" placeholder="Teaching Faculty" required>
+			<br>
+			<input type="submit" onclick="return check()" value="Publish TDL Course">
+		</form>
+		<br><br>
+		<a href="/schools/<%= school._id %>" class="btn btn-warning btn-lg">Cancel</a>
+	</center>
+	</div>
+
+	<script type="text/javascript">
+		function check() {
+			var duration = parseInt(document.getElementById("duration").value);
+			var cpw = parseInt(document.getElementById("cpw").value);
+
+			if (duration <= 0 || cpw <= 0) {
+				alert("Duration and/or Classes per Week must be greater than Zero");
+				return false;
+			}
+			return true;
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AU TDL::Course Update - <%= course.title %></title>
+	<link rel="stylesheet" type="text/css" href="/Stylesheets/bootstrap.min.css">
+
+	<style type="text/css">
+		body,html {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: #34495e; 
+		}
+
+		.container {
+			margin: 5% auto;
+			background-color: white;
+			padding-bottom: 5%;
+			/*position: absolute;*/
+			top: 50%;
+			left: 50%;
+			/*transform: translate(-50%, -50%);*/
+		}
+
+		form {
+			background-color: #191919;
+			width: 80%;
+			border: 2px solid black;
+		}
+
+		form input[type="text"], form input[type="password"], form input[type="number"], form textarea {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #3498db;
+			padding: 14px 10px;
+			width: 80%;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: 0.25s;
+		}
+
+		form input[type="text"]:focus, form input[type="password"]:focus, form input[type='number']:focus, form textarea:focus {
+
+			border-color: #2ecc71;
+		}
+
+		form input[type="submit"] {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #2ecc71;
+			padding: 14px 40px;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: 0.25s;
+			cursor: pointer;
+		}
+
+		form input[type = "submit"]:hover {
+			background: #2eec71;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container" style="border: 3px solid black;">
+		<nav class="navbar navbar-light">
+		  <a class="navbar-brand" href="/"><img src="https://ansaluniversity.edu.in/front-assets/images/logo.png"></a>
+		  <a href="/schools/<%= school._id %>/logout" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+		</nav>
+
+		<center><h3>Update Course</h3></center>
+		<hr>
+
+	<center>
+		<form autocomplete="off" action="/schools/<%= school._id %>/courses/<%= course._id %>?_method=PUT" method="POST">
+			<label style="color: white; margin-top: 5%; font-size: 1.2em;">Course Title</label>
+			<input type="text" name="updated[title]" value="<%= course.title %>" placeholder="new name of course" required>
+			<br>
+			<label style="color: white; font-size: 1.2em;">Course Code</label>
+			<input type="text" name="updated[code]" value="<%= course.code %>" placeholder="new course code" required>
+			<br>
+			<label style="color: white; font-size: 1.2em;">Course Details</label>
+			<textarea rows="10" name="updated[details]" placeholder="course details" style="text-align: left;" required><%= course.details %></textarea>
+			<br>
+			<label style="color: white; font-size: 1.2em;">Course Duration (months)</label>
+			<input type="number" id="duration" name="updated[duration]" value="<%= course.duration %>" required>
+			<br>
+			<label style="color: white; font-size: 1.2em;">Pre-requisites for the Course</label>
+			<textarea rows="10" name="updated[prerequisites]" style="text-align: left;" required><%= course.prerequisites %></textarea>
+			<br>
+			<label style="color: white; font-size: 1.2em;">Number of Classes per Week</label>
+			<input type="number" id="cpw" name="updated[classPerWeek]" value="<%= course.classPerWeek %>" required>
+			<br>
+			<label style="color: white; font-size: 1.2em;">Taught By</label>
+			<input type="text" name="updated[taughtBy]" value="<%= course.taughtBy %>" required>
+			<br>
+			<input type="submit" value="Update Course" onclick="check()">
+		</form>
+		<br><br>
+		<a href="/schools/<%= school._id %>/courses/<%= course._id %>" class="btn btn-warning btn-lg">Cancel</a>
+	</center>
+
+</div>
+
+
+	
+<script type="text/javascript">
+	function check() {
+			var duration = parseInt(document.getElementById("duration").value);
+			var cpw = parseInt(document.getElementById("cpw").value);
+
+			if (duration <= 0 || cpw <= 0) {
+				alert("Duration and/or Classes per Week must be greater than Zero");
+				return false;
+			}
+			return true;
+		}
+</script>
+
+</body>
+</html>
